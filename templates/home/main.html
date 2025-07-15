@@ -1,0 +1,261 @@
+{% extends "home/home.html" %}
+
+{% block content %}
+<main class="lg:w-2/3 lg:ml-[33.3333%] p-8 sm:p-12 md:p-16">
+    {% include "home/theme.html" %}
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex flex-col justify-center -mt-24 lg:mt-0">
+        <div data-aos="fade-up">
+            <p class="text-lg text-primary font-semibold">Hello, I'm Shashwat.</p>
+            <h1 class="text-5xl md:text-7xl font-bold mt-2">I build things for the web.</h1>
+            <p class="mt-6 text-lg text-base-content/70 max-w-xl">
+                I'm a software engineer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I’m focused on building accessible, human-centered products.
+            </p>
+            <div class="mt-8 space-x-4">
+                <!-- TODO: Add a link to your resume file -->
+                <a href="#" class="btn btn-primary btn-lg">Download Resume <i data-lucide="download" class="ml-2"></i></a>
+                <a href="#contact" class="btn btn-outline btn-lg">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-24">
+        <h2 class="text-3xl font-bold mb-12 flex items-center" data-aos="fade-right">
+          <i data-lucide="sparkles" class="mr-4 text-primary"></i>
+          My Skills
+        </h2>
+      
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <!-- Skill Card Template (Copy and Modify) -->
+          <div
+            class="skill-card flex flex-col items-center justify-center bg-base-200 p-6 rounded-lg shadow-lg transition-transform hover:-translate-y-1"
+            data-percent="90"
+            data-label="JavaScript"
+            data-color="primary"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div
+              class="radial-progress text-primary"
+              style="--value:0; --size:10rem; --thickness: 0.7rem"
+              role="progressbar"
+            >
+              <span class="text-xl font-bold progress-text">0%</span>
+            </div>
+            <p class="mt-4 text-lg font-semibold">JavaScript</p>
+          </div>
+      
+          <div class="skill-card flex flex-col items-center justify-center bg-base-200 p-6 rounded-lg shadow-lg transition-transform hover:-translate-y-1"
+            data-percent="85" data-label="React & Next.js" data-color="secondary" data-aos="zoom-in" data-aos-delay="200">
+            <div class="radial-progress text-secondary" style="--value:0; --size:10rem; --thickness: 0.7rem">
+              <span class="text-xl font-bold progress-text">0%</span>
+            </div>
+            <p class="mt-4 text-lg font-semibold">React & Next.js</p>
+          </div>
+      
+          <div class="skill-card flex flex-col items-center justify-center bg-base-200 p-6 rounded-lg shadow-lg transition-transform hover:-translate-y-1"
+            data-percent="80" data-label="Node.js" data-color="accent" data-aos="zoom-in" data-aos-delay="300">
+            <div class="radial-progress text-accent" style="--value:0; --size:10rem; --thickness: 0.7rem">
+              <span class="text-xl font-bold progress-text">0%</span>
+            </div>
+            <p class="mt-4 text-lg font-semibold">Node.js</p>
+          </div>
+      
+          <div class="skill-card flex flex-col items-center justify-center bg-base-200 p-6 rounded-lg shadow-lg transition-transform hover:-translate-y-1"
+            data-percent="95" data-label="HTML & CSS" data-color="info" data-aos="zoom-in" data-aos-delay="400">
+            <div class="radial-progress text-info" style="--value:0; --size:10rem; --thickness: 0.7rem">
+              <span class="text-xl font-bold progress-text">0%</span>
+            </div>
+            <p class="mt-4 text-lg font-semibold">HTML & CSS</p>
+          </div>
+        </div>
+      </section>
+      
+    <!-- Projects Section -->
+    <section id="projects" class="py-24">
+        <h2 class="text-3xl font-bold mb-12 flex items-center" data-aos="fade-right">
+            <i data-lucide="lightbulb" class="mr-4 text-primary"></i>
+            Featured Projects
+        </h2>
+        <!-- Project Filter -->
+        <div class="flex justify-center flex-wrap gap-2 mb-12" data-aos="fade-up">
+            <button class="btn btn-sm btn-primary filter-btn" data-filter="all">All</button>
+            <button class="btn btn-sm btn-ghost filter-btn" data-filter="webapp">Web App</button>
+            <button class="btn btn-sm btn-ghost filter-btn" data-filter="ai">AI/ML</button>
+            <button class="btn btn-sm btn-ghost filter-btn" data-filter="mobile">Mobile</button>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8" id="project-grid">
+            <!-- TODO: Add your projects here -->
+            <div class="card bg-base-100 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl project-card" data-category="webapp" data-aos="fade-up" data-aos-delay="100">
+                <figure><img src="https://placehold.co/600x400/1D232A/3671E9?text=Project+One" alt="Project One" /></figure>
+                <div class="card-body">
+                    <h3 class="card-title">E-commerce Platform</h3>
+                    <p>A full-featured e-commerce site with user authentication, product catalog, and payment gateway integration.</p>
+                    <div class="card-actions justify-start mt-2">
+                        <div class="badge badge-outline">React</div>
+                        <div class="badge badge-outline">Node.js</div>
+                        <div class="badge badge-outline">MongoDB</div>
+                    </div>
+                    <div class="card-actions justify-end mt-4">
+                        <a href="#" class="btn btn-primary btn-sm">Live Demo</a>
+                        <a href="#" class="btn btn-ghost btn-sm">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-base-100 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl project-card" data-category="ai" data-aos="fade-up" data-aos-delay="200">
+                <figure><img src="https://placehold.co/600x400/1D232A/3671E9?text=Project+Two" alt="Project Two" /></figure>
+                <div class="card-body">
+                    <h3 class="card-title">Sentiment Analysis API</h3>
+                    <p>A RESTful API built with Python and Flask that analyzes the sentiment of a given text using a trained ML model.</p>
+                     <div class="card-actions justify-start mt-2">
+                        <div class="badge badge-outline">Python</div>
+                        <div class="badge badge-outline">Flask</div>
+                        <div class="badge badge-outline">NLP</div>
+                    </div>
+                    <div class="card-actions justify-end mt-4">
+                        <a href="#" class="btn btn-primary btn-sm">View Docs</a>
+                        <a href="#" class="btn btn-ghost btn-sm">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-base-100 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl project-card" data-category="webapp" data-aos="fade-up" data-aos-delay="300">
+                <figure><img src="https://placehold.co/600x400/1D232A/3671E9?text=Project+Three" alt="Project Three" /></figure>
+                <div class="card-body">
+                    <h3 class="card-title">Real-time Chat App</h3>
+                    <p>A responsive chat application using WebSockets for instant messaging between multiple users.</p>
+                     <div class="card-actions justify-start mt-2">
+                        <div class="badge badge-outline">Next.js</div>
+                        <div class="badge badge-outline">Socket.IO</div>
+                        <div class="badge badge-outline">Tailwind</div>
+                    </div>
+                    <div class="card-actions justify-end mt-4">
+                        <a href="#" class="btn btn-primary btn-sm">Live Demo</a>
+                        <a href="#" class="btn btn-ghost btn-sm">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-base-100 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl project-card" data-category="mobile" data-aos="fade-up" data-aos-delay="400">
+                <figure><img src="https://placehold.co/600x400/1D232A/3671E9?text=Project+Four" alt="Project Four" /></figure>
+                <div class="card-body">
+                    <h3 class="card-title">Fitness Tracker App</h3>
+                    <p>A cross-platform mobile app to track workouts, calories, and progress with data visualization.</p>
+                     <div class="card-actions justify-start mt-2">
+                        <div class="badge badge-outline">React Native</div>
+                        <div class="badge badge-outline">Firebase</div>
+                        <div class="badge badge-outline">Charts.js</div>
+                    </div>
+                    <div class="card-actions justify-end mt-4">
+                        <a href="#" class="btn btn-disabled btn-sm">In Development</a>
+                        <a href="#" class="btn btn-ghost btn-sm">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education Section -->
+    <section id="experience" class="py-24">
+        <h2 class="text-3xl font-bold mb-12 flex items-center" data-aos="fade-right">
+            <i data-lucide="briefcase" class="mr-4 text-primary"></i>
+            Experience & Education
+        </h2>
+        <!-- TODO: Add your experience and education here -->
+        <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+            <li data-aos="fade-up">
+                <div class="timeline-middle">
+                    <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                </div>
+                <div class="timeline-start md:text-end mb-10">
+                    <time class="font-mono italic">2022 - 2026</time>
+                    <div class="text-lg font-black text-primary">United University, Prayagraj</div>
+                    Bachelor of Technology in Computer Science. Focusing on software development, algorithms, and artificial intelligence.
+                </div>
+                <hr/>
+            </li>
+            <li data-aos="fade-up">
+                <hr/>
+                <div class="timeline-middle">
+                    <i data-lucide="code-2" class="w-5 h-5"></i>
+                </div>
+                <div class="timeline-end mb-10">
+                    <time class="font-mono italic">Summer 2024</time>
+                    <div class="text-lg font-black text-primary">Web Developer Intern</div>
+                    Contributed to a major redesign of the company's flagship product, improving performance and user experience. Worked with React, TypeScript, and GraphQL.
+                </div>
+                <hr/>
+            </li>
+            <li data-aos="fade-up">
+                <hr/>
+                <div class="timeline-middle">
+                     <i data-lucide="star" class="w-5 h-5"></i>
+                </div>
+                <div class="timeline-start md:text-end mb-10">
+                    <time class="font-mono italic">2023</time>
+                    <div class="text-lg font-black text-primary">Freelance Developer</div>
+                    Developed and deployed several small business websites and custom web tools for various clients, managing projects from conception to launch.
+                </div>
+                <hr/>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24">
+        <h2 class="text-3xl font-bold mb-4 text-center" data-aos="fade-up">Get In Touch</h2>
+        <p class="text-center max-w-2xl mx-auto text-base-content/70 mb-12" data-aos="fade-up" data-aos-delay="100">
+            I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, my inbox is always open. I'll get back to you!
+        </p>
+        <form class="max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+            <div class="form-control mb-4">
+                <label class="input input-bordered flex items-center gap-2">
+                    <i data-lucide="user" class="w-4 h-4 opacity-70"></i>
+                    <input type="text" class="grow" placeholder="Your Name" required />
+                </label>
+            </div>
+            <div class="form-control mb-4">
+                 <label class="input input-bordered flex items-center gap-2">
+                    <i data-lucide="mail" class="w-4 h-4 opacity-70"></i>
+                    <input type="email" class="grow" placeholder="Your Email" required />
+                </label>
+            </div>
+            <div class="form-control mb-4">
+                <textarea class="textarea textarea-bordered h-36" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-full">Send Message <i data-lucide="send" class="ml-2"></i></button>
+        </form>
+    </section>
+    
+   {% include "home/footer.html" %}
+
+</main>
+<script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+  
+          const card = entry.target;
+          const target = +card.dataset.percent;
+          const ring = card.querySelector('.radial-progress');
+          const text = card.querySelector('.progress-text');
+          let current = 0;
+  
+          const animate = () => {
+            current += 1;
+            if (current > target) return;
+            ring.style.setProperty('--value', current);
+            text.textContent = `${current}%`;
+            requestAnimationFrame(animate);
+          };
+  
+          animate();
+          observer.unobserve(card);
+        });
+      },
+      { threshold: 0.5 }
+    );
+  
+    document.querySelectorAll('.skill-card').forEach((card) => observer.observe(card));
+  </script>
+  
+{% endblock content %}
