@@ -140,7 +140,7 @@
         // Persist and instantly apply theme changes
         document.querySelectorAll('input[name="theme"]').forEach(radio => {
           // highlight saved theme on first load
-          if (radio.value === (localStorage.getItem('theme') || 'night')) {
+          if (radio.value === (localStorage.getItem('theme') || 'luxury')) {
             radio.checked = true;
           }
           // change handler
