@@ -58,13 +58,15 @@
       
       <!-- DaisyUI should come AFTER this script -->
       <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" />
-      
+      <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
 </head>
 <body class="bg-base-200">
 {% load static %}
     <!-- Main Layout Container -->
     <div class="lg:flex">
-
+        
         <!-- ======================================================= -->
         <!-- LEFT FIXED SIDEBAR -->
         <!-- ======================================================= -->
@@ -76,8 +78,11 @@
                     <img src="{% static 'img/me1.jpg' %}" alt="Shashwat Upadhyay" class="rounded-full w-36 h-36 border-4 border-primary shadow-lg">
                     {% comment %} <img src="https://placehold.co/150x150/000000/FFFFFF?text=SU" alt="Shashwat Upadhyay" class="rounded-full w-36 h-36 border-4 border-primary shadow-lg"> {% endcomment %}
                     <div>
-                        <h1 class="text-4xl font-bold text-primary">Shashwat Upadhyay</h1>
-                        <h2 class="text-xl font-light mt-2 text-base-content/80">Python Developer & AI Enthusiast</h2>
+                        <h1 style="font-family: 'Dancing Script', cursive;" class="text-4xl font-bold text-primary">
+                            <span class='text-info'>S</span>hash<span class='text-info'>w</span>a<span class='text-info'>t</span>
+                            <span class='text-info'>U</span>padhyay
+                          </h1>
+                          <h2 class="text-xl font-light mt-2 text-base-content/80">Python Developer & AI Enthusiast</h2>
                     </div>
                     <!-- TODO: Write a short, engaging bio about yourself -->
                     <p class="text-base-content/70 leading-relaxed">
@@ -110,10 +115,10 @@
                     <!-- Social Icons -->
                     <div class="flex justify-center lg:justify-start space-x-5">
                         <!-- TODO: Replace with your social media links -->
-                        <a href="#" class="text-base-content/70 hover:text-primary transition-transform duration-300 hover:scale-125"><i data-lucide="github"></i></a>
-                        <a href="#" class="text-base-content/70 hover:text-primary transition-transform duration-300 hover:scale-125"><i data-lucide="linkedin"></i></a>
-                        <a href="#" class="text-base-content/70 hover:text-primary transition-transform duration-300 hover:scale-125"><i data-lucide="twitter"></i></a>
-                        <a href="#" class="text-base-content/70 hover:text-primary transition-transform duration-300 hover:scale-125"><i data-lucide="instagram"></i></a>
+                        <a href="https://github.com/ShashwatUpadhyay" target='_blank' class="text-base-content/70 hover:text-primary transition-transform duration-300 hover:scale-125"><i data-lucide="github"></i></a>
+                        <a href="https://www.linkedin.com/in/shashwat-upadhyay-1753622a9/" target='_blank' class="text-base-content/70 hover:text-primary transition-transform duration-300 hover:scale-125"><i data-lucide="linkedin"></i></a>
+                        <!-- <a href="https://www.instagram.com/" target='_blank' class="text-base-content/70 hover:text-primary transition-transform duration-300 hover:scale-125"><i data-lucide="x"></i></a> -->
+                        <a href="https://www.instagram.com/shaswat32._/" target='_blank' class="text-base-content/70 hover:text-primary transition-transform duration-300 hover:scale-125"><i data-lucide="instagram"></i></a>
                     </div>
                 </div>
           
