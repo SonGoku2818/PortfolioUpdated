@@ -4,3 +4,10 @@ COLOR_CHOICES = (
     ('accent','accent'),
     ('info','info'),
     )
+
+EXPERIENCE_ICON = (
+    ("book-open-text","book-open-text"),
+    ("graduation-cap","graduation-cap"),
+    ("briefcase","briefcase"),
+    ("baby","baby"),
+    )

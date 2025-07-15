@@ -1,6 +1,6 @@
 from django.db import models
 import uuid
-from .choices import  COLOR_CHOICES
+from .choices import  COLOR_CHOICES,EXPERIENCE_ICON
 # Create your models here.
 class BaseModel(models.Model):
     uid = models.CharField(max_length=100, default=uuid.uuid4)
@@ -30,6 +30,16 @@ class Project(BaseModel):
     github_link = models.URLField(null=True,blank=True)
     github_is_private = models.BooleanField(default=False)
     tags = models.ManyToManyField(ProjectTag, blank=True, related_name='projects')
+    
+    def __str__(self):
+        return self.title
+    
+class Experience(BaseModel):
+    title = models.CharField(max_length=100)
+    description = models.TextField(null=True, blank=True)
+    icon = models.CharField(max_length=50,choices=EXPERIENCE_ICON, default='briefcase')
+    start_date = models.DateField()
+    end_date = models.DateField(null=True, blank=True)
     
     def __str__(self):
         return self.title
