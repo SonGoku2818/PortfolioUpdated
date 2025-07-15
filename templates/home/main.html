@@ -27,47 +27,25 @@
       
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           <!-- Skill Card Template (Copy and Modify) -->
+           {% for skill in skills %}
           <div
             class="skill-card flex flex-col items-center justify-center bg-base-200 p-6 rounded-lg shadow-lg transition-transform hover:-translate-y-1"
-            data-percent="90"
+            data-percent="{{skill.proficiency}}"
             data-label="JavaScript"
             data-color="primary"
             data-aos="zoom-in"
             data-aos-delay="100"
           >
             <div
-              class="radial-progress text-primary"
+              class="radial-progress text-{{skill.color}}"
               style="--value:0; --size:10rem; --thickness: 0.7rem"
               role="progressbar"
             >
               <span class="text-xl font-bold progress-text">0%</span>
             </div>
-            <p class="mt-4 text-lg font-semibold">JavaScript</p>
+            <p class="mt-4 text-lg font-semibold">{{skill.name}}</p>
           </div>
-      
-          <div class="skill-card flex flex-col items-center justify-center bg-base-200 p-6 rounded-lg shadow-lg transition-transform hover:-translate-y-1"
-            data-percent="85" data-label="React & Next.js" data-color="secondary" data-aos="zoom-in" data-aos-delay="200">
-            <div class="radial-progress text-secondary" style="--value:0; --size:10rem; --thickness: 0.7rem">
-              <span class="text-xl font-bold progress-text">0%</span>
-            </div>
-            <p class="mt-4 text-lg font-semibold">React & Next.js</p>
-          </div>
-      
-          <div class="skill-card flex flex-col items-center justify-center bg-base-200 p-6 rounded-lg shadow-lg transition-transform hover:-translate-y-1"
-            data-percent="80" data-label="Node.js" data-color="accent" data-aos="zoom-in" data-aos-delay="300">
-            <div class="radial-progress text-accent" style="--value:0; --size:10rem; --thickness: 0.7rem">
-              <span class="text-xl font-bold progress-text">0%</span>
-            </div>
-            <p class="mt-4 text-lg font-semibold">Node.js</p>
-          </div>
-      
-          <div class="skill-card flex flex-col items-center justify-center bg-base-200 p-6 rounded-lg shadow-lg transition-transform hover:-translate-y-1"
-            data-percent="95" data-label="HTML & CSS" data-color="info" data-aos="zoom-in" data-aos-delay="400">
-            <div class="radial-progress text-info" style="--value:0; --size:10rem; --thickness: 0.7rem">
-              <span class="text-xl font-bold progress-text">0%</span>
-            </div>
-            <p class="mt-4 text-lg font-semibold">HTML & CSS</p>
-          </div>
+          {% endfor %}
         </div>
       </section>
       
@@ -86,70 +64,26 @@
         </div>
         <div class="grid md:grid-cols-2 gap-8" id="project-grid">
             <!-- TODO: Add your projects here -->
+             {% for project in projects %}
             <div class="card bg-base-100 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl project-card" data-category="webapp" data-aos="fade-up" data-aos-delay="100">
-                <figure><img src="https://placehold.co/600x400/1D232A/3671E9?text=Project+One" alt="Project One" /></figure>
+                <figure><img src="{{project.image.url}}" alt="{{project.title}}" /></figure>
                 <div class="card-body">
-                    <h3 class="card-title">E-commerce Platform</h3>
-                    <p>A full-featured e-commerce site with user authentication, product catalog, and payment gateway integration.</p>
+                    <h3 class="card-title">{{project.title}}</h3>
+                    <p>{{project.description|slice:200}}...</p>
                     <div class="card-actions justify-start mt-2">
-                        <div class="badge badge-outline">React</div>
-                        <div class="badge badge-outline">Node.js</div>
-                        <div class="badge badge-outline">MongoDB</div>
+                        {% for tag in project.tags.all %}
+                        <div class="badge badge-outline">{{tag.name}}</div>
+                        {% endfor %}
                     </div>
                     <div class="card-actions justify-end mt-4">
-                        <a href="#" class="btn btn-primary btn-sm">Live Demo</a>
-                        <a href="#" class="btn btn-ghost btn-sm">GitHub</a>
+                        <a href="{{project.project_link}}" target="_blank" class="btn btn-primary btn-sm">Live Demo</a>
+                        {% if project.github_link %}
+                            <a href="{{project.github_link}}" target="_blank" class="btn btn-ghost btn-sm">GitHub</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
-            <div class="card bg-base-100 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl project-card" data-category="ai" data-aos="fade-up" data-aos-delay="200">
-                <figure><img src="https://placehold.co/600x400/1D232A/3671E9?text=Project+Two" alt="Project Two" /></figure>
-                <div class="card-body">
-                    <h3 class="card-title">Sentiment Analysis API</h3>
-                    <p>A RESTful API built with Python and Flask that analyzes the sentiment of a given text using a trained ML model.</p>
-                     <div class="card-actions justify-start mt-2">
-                        <div class="badge badge-outline">Python</div>
-                        <div class="badge badge-outline">Flask</div>
-                        <div class="badge badge-outline">NLP</div>
-                    </div>
-                    <div class="card-actions justify-end mt-4">
-                        <a href="#" class="btn btn-primary btn-sm">View Docs</a>
-                        <a href="#" class="btn btn-ghost btn-sm">GitHub</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card bg-base-100 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl project-card" data-category="webapp" data-aos="fade-up" data-aos-delay="300">
-                <figure><img src="https://placehold.co/600x400/1D232A/3671E9?text=Project+Three" alt="Project Three" /></figure>
-                <div class="card-body">
-                    <h3 class="card-title">Real-time Chat App</h3>
-                    <p>A responsive chat application using WebSockets for instant messaging between multiple users.</p>
-                     <div class="card-actions justify-start mt-2">
-                        <div class="badge badge-outline">Next.js</div>
-                        <div class="badge badge-outline">Socket.IO</div>
-                        <div class="badge badge-outline">Tailwind</div>
-                    </div>
-                    <div class="card-actions justify-end mt-4">
-                        <a href="#" class="btn btn-primary btn-sm">Live Demo</a>
-                        <a href="#" class="btn btn-ghost btn-sm">GitHub</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card bg-base-100 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl project-card" data-category="mobile" data-aos="fade-up" data-aos-delay="400">
-                <figure><img src="https://placehold.co/600x400/1D232A/3671E9?text=Project+Four" alt="Project Four" /></figure>
-                <div class="card-body">
-                    <h3 class="card-title">Fitness Tracker App</h3>
-                    <p>A cross-platform mobile app to track workouts, calories, and progress with data visualization.</p>
-                     <div class="card-actions justify-start mt-2">
-                        <div class="badge badge-outline">React Native</div>
-                        <div class="badge badge-outline">Firebase</div>
-                        <div class="badge badge-outline">Charts.js</div>
-                    </div>
-                    <div class="card-actions justify-end mt-4">
-                        <a href="#" class="btn btn-disabled btn-sm">In Development</a>
-                        <a href="#" class="btn btn-ghost btn-sm">GitHub</a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
 
