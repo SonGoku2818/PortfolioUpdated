@@ -22,6 +22,9 @@ class Skill(BaseModel):
 class ProjectTag(BaseModel):
     name = models.CharField(max_length=100)
     
+    def __str__(self):
+        return self.name
+    
 class Project(BaseModel):
     title = models.CharField(max_length=100)
     description = models.TextField()
