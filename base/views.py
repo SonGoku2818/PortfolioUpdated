@@ -3,13 +3,29 @@ from base.models import Skill,Project,Experience
 from portfolio.settings import ALLOWED_HOSTS
 from django.contrib import messages
 from base.models import Message
+from django.core.mail import send_mail
 # Create your views here.
+
+def send_email(name,email,message):
+    send_mail(
+        subject=f'New message from {name}',
+        message=message,
+        from_email=email,
+        recipient_list=['shashwatup619@gmail.com'],
+        fail_silently=False,
+    )
+
 def home(request):
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
         message = request.POST['message']
         Message.objects.create(name=name,email=email,message=message,ip_address=request.META.get('REMOTE_ADDR'))
+        try:
+            send_email(name,email,message)
+        except:
+            messages.error(request, 'Failed to send message!')
+            return redirect('home')
         messages.success(request, 'Message sent successfully!')
         return redirect('home')
     skills = Skill.objects.all()

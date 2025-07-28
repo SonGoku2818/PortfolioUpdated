@@ -162,10 +162,10 @@
         {% if messages %}
             {% for message in messages %}
                 Swal.fire({
-                    icon: 'success',
-                    title: 'Message sent successfully!',
+                    icon: '{% if message.tags == 'success' %}success{% else %}error{% endif %}',
+                    title: '{% if message.tags == 'success' %}Message sent successfully!{% else %}Failed to send message!{% endif %}',
                     color: '#fff',
-                    background: '#1f2937',
+                    background: '{% if message.tags == 'success' %}#1f2937{% else %}#f44336{% endif %}',
                     timer: 2000,
                     showConfirmButton: false,
                     position: 'top-end',
