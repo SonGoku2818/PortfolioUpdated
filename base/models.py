@@ -46,3 +46,18 @@ class Experience(BaseModel):
     
     def __str__(self):
         return self.title
+    
+    
+class Message(BaseModel):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    ip_address = models.GenericIPAddressField(null=True, blank=True)
+        
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        db_table = 'message'
+        ordering = ['-created_at']
+        verbose_name_plural = 'Messages'

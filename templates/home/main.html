@@ -131,21 +131,23 @@
         <p class="text-center max-w-2xl mx-auto text-base-content/70 mb-12" data-aos="fade-up" data-aos-delay="100">
             I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, my inbox is always open. I'll get back to you!
         </p>
-        <form class="max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+        <form method='post' class="max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+            {% csrf_token %}
             <div class="form-control mb-4">
                 <label class="input input-bordered flex items-center gap-2">
                     <i data-lucide="user" class="w-4 h-4 opacity-70"></i>
-                    <input type="text" class="grow" placeholder="Your Name" required />
+                    <input type="text" name='name' class="grow" placeholder="Your Name" required />
+
                 </label>
             </div>
             <div class="form-control mb-4">
                  <label class="input input-bordered flex items-center gap-2">
                     <i data-lucide="mail" class="w-4 h-4 opacity-70"></i>
-                    <input type="email" class="grow" placeholder="Your Email" required />
+                    <input type="email" name='email' class="grow" placeholder="Your Email" required />
                 </label>
             </div>
             <div class="form-control mb-4">
-                <textarea class="textarea textarea-bordered h-36" placeholder="Your Message" required></textarea>
+                <textarea class="textarea textarea-bordered h-36" name='message' placeholder="Your Message" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary w-full">Send Message <i data-lucide="send" class="ml-2"></i></button>
         </form>
@@ -154,7 +156,29 @@
    {% include "home/footer.html" %}
 
 </main>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        {% if messages %}
+            {% for message in messages %}
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Message sent successfully!',
+                    color: '#fff',
+                    background: '#1f2937',
+                    timer: 2000,
+                    showConfirmButton: false,
+                    position: 'top-end',
+                    toast: true,
+                    width: '300px',
+                    height: '100px',
+                    customClass: {
+                        popup: 'custom-swal-popup',
+                    },
+                });
+            {% endfor %}
+        {% endif %}
+    });
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
