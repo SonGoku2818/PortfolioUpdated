@@ -53,6 +53,7 @@ class Message(BaseModel):
     email = models.EmailField()
     message = models.TextField()
     ip_address = models.GenericIPAddressField(null=True, blank=True)
+    mail_sent = models.BooleanField(default=False)
         
     def __str__(self):
         return self.name

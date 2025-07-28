@@ -20,9 +20,11 @@ def home(request):
         name = request.POST['name']
         email = request.POST['email']
         message = request.POST['message']
-        Message.objects.create(name=name,email=email,message=message,ip_address=request.META.get('REMOTE_ADDR'))
+        msg = Message.objects.create(name=name,email=email,message=message,ip_address=request.META.get('REMOTE_ADDR'))
         try:
             send_email(name,email,message)
+            msg.mail_sent = True
+            msg.save()
         except:
             messages.error(request, 'Failed to send message!')
             return redirect('home')
