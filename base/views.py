@@ -4,6 +4,7 @@ from portfolio.settings import ALLOWED_HOSTS
 from django.contrib import messages
 from base.models import Message
 from django.core.mail import send_mail
+from django.conf import settings
 # Create your views here.
 
 def send_email(name,email,message):
@@ -11,7 +12,7 @@ def send_email(name,email,message):
         subject=f'New message from {name}',
         message=message,
         from_email=email,
-        recipient_list=['shashwatup619@gmail.com'],
+        recipient_list=[settings.EMAIL_HOST_USER],
         fail_silently=False,
     )
 
