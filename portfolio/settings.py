@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-y%rgr05abos^$mykhrkqu$)f@8_j$3)in1wc0z1j2duzqw=0c7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') 
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = ["hemant-portfolio-dnrx.onrender.com", "localhost", "127.0.0.1"]
 
 
 
